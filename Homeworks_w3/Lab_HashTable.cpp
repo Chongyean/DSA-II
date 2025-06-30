@@ -1,5 +1,5 @@
 #include<iostream>
-#define ArraySize 200
+#define ArraySize 100
 using namespace std;
 
 string HashTable[ArraySize];
@@ -11,7 +11,7 @@ int HashFunction(string word) {
 
     for (int i = 0; i < word.size(); i++) {
         HugeNumber += (word[i] - 'a' + 1) * power;
-        power *= base; // Increase the power of the base for the next character
+        power *= base;
     }
 
     return HugeNumber % ArraySize;
@@ -39,15 +39,15 @@ bool SearchInHashTable(string word) {
     while (HashTable[newIndex] != "") {
 
         if (HashTable[newIndex] == word) {
-            return true; // Item found at new index
+            return true;
         }
 
         newIndex = (newIndex + 1) % ArraySize; // Linear probing
         if (newIndex == index) {
-            break; // We have looped through the table
+            break;
         }
     }
-    return false; // Item not found
+    return false;
     
 }
 
@@ -58,12 +58,12 @@ void InsertIntoHashTable(string word) {
     // If there is a collision, find a new index
     if (HashTable[index] == "") {
 
-        HashTable[index] = word; // Insert the word at the new index
+        HashTable[index] = word;
         cout << "Inserted word: " << word << " at index: " << newIndex << endl;
     } 
     else if (newIndex != -1) {
 
-        HashTable[newIndex] = word; // Insert the word at the original index if no collision
+        HashTable[newIndex] = word;
         cout << "Inserted word: " << word << " at index: " << newIndex << endl;
     }
     else {
@@ -113,7 +113,7 @@ int main() {
 
             case 4:
                 cout << "Exiting program." << endl;
-                return 0; // Exit the program
+                return 0;
 
             default:
                 cout << "Invalid choice." << endl;
