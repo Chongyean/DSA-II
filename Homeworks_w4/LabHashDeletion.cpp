@@ -28,6 +28,7 @@ int Collision(int IndexOfHashTable) {
             return -1; 
         }
     }
+
     return newIndex;
 }
 
@@ -38,37 +39,38 @@ bool SearchInHashTable(string word) {
     while (HashTable[newIndex] != "") {
 
         if (HashTable[newIndex] == word) {
-            return true; // Item found at new index
+            return true;
         }
 
         newIndex = (newIndex + 1) % ArraySize; // Linear probing
         if (newIndex == index) {
-            break; // We have looped through the table
+            break;
         }
     }
-    return false; // Item not found
+    return false;
     
 }
 
+//Insert Tombstone into the hash table
 void InsertIntoHashTable(string word) {
     int index = HashFunction(word);
     int newIndex = Collision(index);
     
     //Check if the index is tombstone
     if (HashTable[index] == "Tombstone") {
-        HashTable[index] = word; // If the original index is a tombstone, replace it with the new word
+        HashTable[index] = word;
         cout << "Inserted word: " << word << " at index: " << index << endl;
         return;
     }
     // If there is a collision, find a new index
     if (newIndex != -1) {
 
-        HashTable[newIndex] = word; // Insert the word at the new index
+        HashTable[newIndex] = word;
         cout << "Inserted word: " << word << " at index: " << newIndex << endl;
     } 
     else {
 
-        HashTable[index] = word; // Insert the word at the original index if no collision or tombstone
+        HashTable[index] = word;
     }
 }
 
