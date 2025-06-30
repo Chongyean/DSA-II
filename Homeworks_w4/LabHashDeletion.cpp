@@ -81,13 +81,13 @@ void DeleteFromHashTable(string word) {
     //Find the word in the hash table based on Tombstone deletion
     while (HashTable[newIndex] != "") {
         if (HashTable[newIndex] == word) {
-            HashTable[newIndex] = "Tombstone"; // Mark the slot as deleted
+            HashTable[newIndex] = "Tombstone";
             cout << "Deleted word: " << word << " from index: " << newIndex << endl;
             return;
         }
         newIndex = (newIndex + 1) % ArraySize; // Linear probing
         if (newIndex == index) {
-            break; // We have looped through the table
+            break;
         }
     }
 }  
