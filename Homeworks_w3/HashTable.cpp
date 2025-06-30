@@ -46,7 +46,7 @@ public:
                 break;
         }
         return false;
-    }   
+    }
 
     void display() {
         for (int i = 0; i < TABLE_SIZE; ++i) {
