@@ -29,12 +29,14 @@ int Collision(int IndexOfHashTable) {
             return -1;
         }
     }
+
     return newIndex;
 }
 
 bool SearchInHashTable(string word) {
     int index = HashFunction(word);
     int newIndex = index;
+    
     // Handle collision using linear probing
     while (HashTable[newIndex] != "") {
 
