@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-#define ArraySize 200
+#define ArraySize 100
 
 string HashTable[ArraySize];
 
