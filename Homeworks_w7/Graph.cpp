@@ -40,7 +40,7 @@ void findNode() {
         return;
     }
 
-    cout << "Connections for Node " << node << ": ";
+    cout << "Connections for Node " << node << " : ";
     for (int i = 0; i < 6; i++) {
         if (Graph[node][i] != 0) {
             cout << i << " ";
