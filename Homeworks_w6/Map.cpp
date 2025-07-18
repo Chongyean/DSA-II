@@ -3,7 +3,6 @@
 #include <string>
 using namespace std;
 
-//Basic usage of map in C++
 int main() {
 
     //Task 1 : Add student Grades
@@ -16,6 +15,8 @@ int main() {
     //Task 2 : Update Dara's grade to 88.5
     studentGrades["Dara"] = 88.5;
     cout << "====== Updated Student Grades ======" << endl;
+
+    // auto& to auto infers the type of the elements in the map
     for (const auto& element : studentGrades) {
         cout << element.first << " : " << element.second << endl;
     }
