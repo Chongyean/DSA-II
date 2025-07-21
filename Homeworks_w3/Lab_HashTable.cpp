@@ -49,8 +49,8 @@ bool SearchInHashTable(string word) {
             break;
         }
     }
+
     return false;
-    
 }
 
 void InsertIntoHashTable(string word) {
