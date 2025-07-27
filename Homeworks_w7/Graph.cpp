@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 void displayGraph() {
     int Graph[6][6] = {
         {0, 2, 0, 3, 3, 0},
@@ -88,7 +87,9 @@ int main() {
         {3, 0, 0, 2, 0, 7},
         {0, 0, 0, 6, 7, 0}
     };
+    
     // Users options
+    cout << "====================" << endl;
     cout << "1. Display the graph" << endl;
     cout << "2. Find Node" << endl;
     cout << "3. Find Connection of Node" << endl;

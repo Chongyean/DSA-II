@@ -85,7 +85,9 @@ void DeleteFromHashTable(string word) {
             cout << "Deleted word: " << word << " from index: " << newIndex << endl;
             return;
         }
-        newIndex = (newIndex + 1) % ArraySize; // Linear probing
+
+        // Linear probing
+        newIndex = (newIndex + 1) % ArraySize; 
         if (newIndex == index) {
             break;
         }
@@ -125,7 +127,7 @@ int main() {
                 cout << "Enter word to delete: ";
                 cin >> word;
                 DeleteFromHashTable(word);
-                break;
+                break; 
             case 4:
                 cout << "Hash Table contents:\n";
                 for (int i = 0; i < ArraySize; i++) {
@@ -140,6 +142,7 @@ int main() {
                 cout << "Invalid choice, please try again.\n";
         }
     }
+
     return 0;
 }
 

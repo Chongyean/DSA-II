@@ -4,7 +4,7 @@
 using namespace std;
 
 const int TABLE_SIZE = 200;   
-const int STEP_CONSTANT = 197;  // must be a prime < TABLE_SIZE
+const int STEP_CONSTANT = 197;  // primeNum < TABLE_SIZE
 
 // Convert 2 letter word to a number
 int getKey(const string& word) {
@@ -34,21 +34,16 @@ void insert(vector<string>& table, const string& word) {
     }
 
     table[index] = word;
-    cout << "Inserted \"" << word << "\" at index " << index << " after " << i << " steps.\n";
+    cout << "Inserted \"" << word << "\" at index " << index << "  [after " << i << " steps]\n";
 }
 
 int main() {
     vector<string> table(TABLE_SIZE, "");
 
     vector<string> words = {
-        "ck", "ak", "zk", "aa", "bb", "cc", "dd", "ee", "ff", "gg",
-        "hh", "ii", "jj", "kk", "ll", "mm", "nn", "oo", "pp", "qq",
-        "rr", "ss", "tt", "uu", "vv", "ww", "xx", "yy", "zz", "ab",
-        "bc", "cd", "de", "ef", "fg", "gh", "hi", "ij", "jk", "kl",
-        "lm", "mn", "no", "op", "pq", "qr", "rs", "st", "tu", "uv",
-        "vw", "wx", "xy", "yz", "za", "ba", "cb", "dc", "ed", "fe",
-        "gf", "hg", "ih", "ji", "kj", "lk", "ml", "nm", "on", "po",
-        "qp", "rq", "sr", "ts", "ut", "vu", "wv", "xw", "yx", "zy"
+        //ck = 107 = hugeNumber = key
+        //stepConstant = 197
+        "ck", "ck", "gk", "hk", "ik", "jk", "kk", "lk", "mk", "nk"
     };
 
     for (const string& word : words) {
