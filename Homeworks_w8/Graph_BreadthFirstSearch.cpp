@@ -1,56 +1,69 @@
 #include <iostream>
-#include <vector>
 #include <queue>
 using namespace std;
 
-// BFS function
-void bfs(int start, vector<vector<int>>& graph, int nodes) {
-    vector<bool> visited(nodes, false); // Keep track of visited nodes
-    queue<int> q; // Queue for BFS
+int Graph[ 3 ][ 3 ];
 
-    // Step 1: Start from the given node
-    visited[start] = true;
-    q.push(start);
+int main() {
 
-    cout << "BFS Traversal: ";
+    int s = 0; // Start node 
+    int Goal =  2; // Goal node 
 
-    // Step 2–6: Loop
-    while (!q.empty()) {
-        int current = q.front();
-        q.pop();
-        cout << current << " ";
+    queue<int> Queue; // Queue for BFS
 
-        // Step 5: Look at all neighbors
-        for (int neighbor : graph[current]) {
-            if (!visited[neighbor]) {
-                visited[neighbor] = true;
-                q.push(neighbor);
+    //VisitedList is Empty
+    int VisitedList[ 10 ] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+    int n;
+    int CountVisitedNode = 0;
+
+    // 1. Intialize : Set Stack = { s }, VisitedList = {  }
+    Queue.push(s);
+    STEP_2:
+
+    // 2. Terminate when Stack is empty
+    if (Queue.empty()) {
+        cout << "No path found from node " << s << " to node " << Goal << endl;
+        return 0;
+    }
+    else {
+        cout << "BFS Traversal starting from node " << s << ":\n";
+    }
+    
+    // 3. Select a vertex, n , from Stack
+    n = Queue.front();
+    Queue.pop();
+
+    // 4. Visit n and save n to VisitedList
+    if ( n == Goal ) {
+        cout << "Goal node : " << Goal << " found!" << endl;
+        return 0;
+    }
+    else {
+        //check if not full
+        //increase the count of visited nodes
+        VisitedList[CountVisitedNode++] = n;
+        cout << "Visiting node: " << n << endl;
+    }
+
+    // 5. Expand: Define Successors m of vertex n in Graph
+    // For each successor, m, insert m in Stack
+    // Only if m is not in VisitedList
+    for ( int m = 0; m < 3; ++m ) {
+        if ( Graph[ n ][ m ] != 0 ) {
+            // Check if m is not already visited
+            // then add to queue
+            bool alreadyVisited = false;
+            for ( int i = 0; i < CountVisitedNode; ++i ) {
+                if ( VisitedList[i] == m ) {
+                    alreadyVisited = true;
+                    break;
+                }
             }
         }
     }
-    cout << endl;
-}
 
-// Main function
-int main() {
-    int nodes = 6;
-    
-    // Representing the graph (0-based index)
-    vector<vector<int>> graph(nodes);
+    goto STEP_2; // Go back to step 2
 
-    // Example edges
-    graph[0] = {1, 3, 4};
-    graph[1] = {0, 2};
-    graph[2] = {1, 3};
-    graph[3] = {0, 2, 5};
-    graph[4] = {0};
-    graph[5] = {3};
+    // 6. Repeat from step 2
 
-    int startNode;
-    cout << "Enter starting node (0 to " << nodes - 1 << "): ";
-    cin >> startNode;
-
-    bfs(startNode, graph, nodes);
-
-    return 0;
 }
