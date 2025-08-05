@@ -67,6 +67,7 @@ void InsertIntoHashTable(string word) {
 
         HashTable[newIndex] = word;
         cout << "Inserted word: " << word << " at index: " << newIndex << endl;
+
     } 
     else {
 
@@ -92,14 +93,14 @@ void DeleteFromHashTable(string word) {
             break;
         }
     }
-}  
+}
 
 int main() {
     string word;
     int choice;
 
     while (true) {
-        cout << "===============================================\n";
+        cout << "===================================\n";
         cout << "1. Insert into Hash Table\n";
         cout << "2. Search in Hash Table\n";
         cout << "3. Delete from Hash Table\n";

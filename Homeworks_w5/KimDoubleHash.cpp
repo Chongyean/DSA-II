@@ -10,7 +10,7 @@ int HashFunction(string word, int& HugeNumber) {
     int power = 1;
 
     for (int i = 0; i < word.size(); i++) {
-        HugeNumber += (word[i] - 'a' + 1) * power; 
+        HugeNumber += (word[i] - 'a' + 1) * power;
         power *= base; // Increase the power of the base for the next character
     }
 
@@ -23,7 +23,7 @@ int DoubleHashing(string word) {
 
     //Calculate step size using formula: stepSize = constant - (key % constant)
     int stepSize = 7 - (HugeNumber % 7); 
-    int newIndex = index; 
+    int newIndex = index;
 
     while (HashTable[newIndex] != "") {
 
