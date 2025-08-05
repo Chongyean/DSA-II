@@ -7,9 +7,9 @@ int Graph[ 3 ][ 3 ];
 int main() {
 
     int s = 0; // Start node 
-    int Goal =  2; // Goal node 
+    int Goal = 2; // Goal node 
 
-    stack<int> STACK; // STACK for BFS
+    stack<int> STACK; // STACK for DFS
 
     //VisitedList is Empty
     int VisitedList[ 10 ] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
@@ -25,6 +25,7 @@ int main() {
         cout << "No path found from node " << s << " to node " << Goal << endl;
         return 0;
     }
+
     else {
         cout << "BFS Traversal starting from node " << s << ":\n";
     }

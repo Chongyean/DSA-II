@@ -7,7 +7,7 @@ int Graph[ 3 ][ 3 ];
 int main() {
 
     int s = 0; // Start node 
-    int Goal =  2; // Goal node 
+    int Goal = 2; // Goal node 
 
     queue<int> Queue; // Queue for BFS
 
@@ -16,11 +16,11 @@ int main() {
     int n;
     int CountVisitedNode = 0;
 
-    // 1. Intialize : Set Stack = { s }, VisitedList = {  }
+    // 1. Intialize : Set Queue = { s }, VisitedList = {  }
     Queue.push(s);
     STEP_2:
 
-    // 2. Terminate when Stack is empty
+    // 2. Terminate when Queue is empty
     if (Queue.empty()) {
         cout << "No path found from node " << s << " to node " << Goal << endl;
         return 0;
@@ -29,7 +29,7 @@ int main() {
         cout << "BFS Traversal starting from node " << s << ":\n";
     }
     
-    // 3. Select a vertex, n , from Stack
+    // 3. Select a vertex, n , from Queue
     n = Queue.front();
     Queue.pop();
 
@@ -46,7 +46,7 @@ int main() {
     }
 
     // 5. Expand: Define Successors m of vertex n in Graph
-    // For each successor, m, insert m in Stack
+    // For each successor, m, insert m in Queue
     // Only if m is not in VisitedList
     for ( int m = 0; m < 3; ++m ) {
         if ( Graph[ n ][ m ] != 0 ) {
