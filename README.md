@@ -1,4 +1,4 @@
-# Project Title
+# Data Structure and Algorithsm
 
 Subject DSA (Data Structure and Algorithsm) by Teacher Srun Sovilla the head of FE Department
 
