@@ -27,7 +27,7 @@ int main () {
     while (true) {
     
     cout << endl;
-    cout << "======== GRAPH ANALYSIS MENU =========" << endl;
+    cout << "============ GRAPH MENU ===============" << endl;
     cout << "1. Find connections for a specific node" << endl;
     cout << "2. Find length between two nodes" << endl;
     cout << "3. length of node 1 -> 2 -> 4 -> 5 -> 6" << endl;
