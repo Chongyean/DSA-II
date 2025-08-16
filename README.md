@@ -6,6 +6,9 @@
 
 ## Installation
 
+Open Your CMD or PowerShell...
+And ->
+
 ```bash
   git clone https://github.com/Chongyean/DSA-II
   cd yourCustomizeName
