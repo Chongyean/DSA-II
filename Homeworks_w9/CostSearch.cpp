@@ -17,10 +17,10 @@ int main() {
     int goal = 7; // Goal node
     int n = s; // Current node
     
-    //Step 1: initialize open{s} and visited list
-    int open[20];
-    int openSize = 1;
-    open[0] = s;
+    //Step 1: initialize OPEN{s} and visited list
+    int OPEN[20];
+    int OPENSize = 1;
+    OPEN[0] = s;
 
     int visitedList[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
     int C[8];
@@ -34,8 +34,8 @@ int main() {
     visitedList[s] = 1; // Mark start node as visited
 
     STEP2:
-    //Step 2: terminate if open is empty
-    if (openSize == 0) {
+    //Step 2: terminate if OPEN is empty
+    if (OPENSize == 0) {
         cout << "No path found" << endl;
         return 0;
     }
@@ -43,18 +43,18 @@ int main() {
     //Step 3: select node with the smallest cost from OPEN and save n to Visited list
     int minCost = INT_MAX;
     int idx = -1;
-    for (int i = 0; i < openSize; i++) {
-        if (C[open[i]] < minCost) {
-            minCost = C[open[i]];
+    for (int i = 0; i < OPENSize; i++) {
+        if (C[OPEN[i]] < minCost) {
+            minCost = C[OPEN[i]];
             idx = i;
         }
     }
-    n = open[idx];
+    n = OPEN[idx];
 
-    for (int i = idx; i < openSize - 1; i++) {
-        open[i] = open[i + 1];
+    for (int i = idx; i < OPENSize - 1; i++) {
+        OPEN[i] = OPEN[i + 1];
     }
-    openSize--;
+    OPENSize--;
     visitedList[n] = 1; // Mark n as visited
 
     //Step 4: if n is goal then terminate with success
@@ -68,19 +68,19 @@ int main() {
         if (Graph[n][m] != -1) {
             int newCost = C[n] + Graph[n][m];
 
-            bool inOpen = false;
-            for (int k = 0; k < openSize; k++) {
-                if (open[k] == m) {
-                    inOpen = true;
+            bool inOPEN = false;
+            for (int k = 0; k < OPENSize; k++) {
+                if (OPEN[k] == m) {
+                    inOPEN = true;
                     break;
                 }
             }
 
-            if (!inOpen && !visitedList[m]) {
+            if (!inOPEN && !visitedList[m]) {
                 C[m] = newCost;
                 parent[m] = n;
-                open[openSize] = m;
-                openSize++;
+                OPEN[OPENSize] = m;
+                OPENSize++;
             }
 
             else if (C[m] > newCost) {
@@ -89,8 +89,8 @@ int main() {
 
                 if (visitedList[m]) {
                     visitedList[m] = 0;
-                    open[openSize] = m;
-                    openSize++;
+                    OPEN[OPENSize] = m;
+                    OPENSize++;
                 }
             }
         }
