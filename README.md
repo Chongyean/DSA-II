@@ -13,4 +13,8 @@ And ->
   git clone https://github.com/Chongyean/DSA-II
   cd yourCustomizeName
 ```
+if you have Vscode after install just used
+```bash
+  code .
+```
     
