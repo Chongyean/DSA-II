@@ -40,7 +40,7 @@ int main () {
         switch(choice) {
             case 1: {
 
-                cout << "Enter node to find connections ( 1 - 6 ): ";
+                cout << "Enter node to find connections ( 1 - 6 ) : ";
                 int userInput;
                 cin >> userInput;
                 
@@ -62,13 +62,13 @@ int main () {
                         hasOutgoing = true;
                     }
                 }
-                if (!hasOutgoing) cout << "No outgoing connections";
-                cout << endl;
+                if (!hasOutgoing) 
+                cout << "No outgoing connections" << endl;
                 
                 // 2.2 Find nodes that connect to user input (incoming connections)
                 cout << "Nodes that connect TO Node " << userInput << ": ";
                 bool hasIncoming = false;
-                for (int i = 0; i < 6; ++i) {
+                for ( int i = 0; i < 6; ++i ) {
                     if (Graph[i][nodeIndex] != 0) {
                         cout << "Node " << (i + 1) << " ";
                         hasIncoming = true;
@@ -82,9 +82,9 @@ int main () {
             case 2: {
                 // Find path length between two nodes
                 int startNode, endNode;
-                cout << "Enter start node (1-6): ";
+                cout << "Enter start node ( 1 - 6 ) : ";
                 cin >> startNode;
-                cout << "Enter end node (1-6): ";
+                cout << "Enter end node ( 1 - 6 ) : ";
                 cin >> endNode;
                 
                 if (startNode < 1 || startNode > 6 || endNode < 1 || endNode > 6) {
