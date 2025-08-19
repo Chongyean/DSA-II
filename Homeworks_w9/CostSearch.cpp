@@ -27,7 +27,7 @@ int main() {
     int parent[8];
 
     for (int i = 0; i < 8; i++) {
-        C[i] = INT_MAX; // Initialize costs to infinity
+        C[i] = 100; // Initialize costs to infinity
         parent[i] = -1; // Initialize parents to -1
     }
     C[s] = 0; // Cost of start node is 0
@@ -35,13 +35,13 @@ int main() {
 
     STEP2:
     //Step 2: terminate if OPEN is empty
-    if (OPENSize == 0) {
+    if (OPENSize == 0) {         
         cout << "No path found" << endl;
         return 0;
     }
 
     //Step 3: select node with the smallest cost from OPEN and save n to Visited list
-    int minCost = INT_MAX;
+    int minCost = 100;
     int idx = -1;
     for (int i = 0; i < OPENSize; i++) {
         if (C[OPEN[i]] < minCost) {
